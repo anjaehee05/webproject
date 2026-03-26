@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>검색 결과 페이지 - 헤더 고정형</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <h1 class="logo">로고</h1>
+        <div class="user-area">
+          <nav class="user-menu">
+            <span>고객센터</span>
+            <span>마이페이지</span>
+            <span>로그아웃</span>
+          </nav>
+
+          <div class="icon-row">
+            <span class="material-symbols-outlined search-icon">search</span>
+            <span class="material-symbols-outlined">menu</span>
+            <span class="material-symbols-outlined">notifications</span>
+          </div>
+        </div>
+      </div>
+      <div class="search-box" id="searchBox">
+        <input type="text" placeholder="검색어 입력를 입력해주세요..." />
+      </div>
+    </header>
+
+    <section class="filter-section">
+      <div class="filter-bar">
+        <div class="filters">
+          <button id="colorBtn">색상 ▾</button>
+          <button id="priceBtn">가격대 ▾</button>
+          <button id="sizeBtn">사이즈 ▾</button>
+        </div>
+        <div class="sort-container">
+          <div class="sort" id="sortBtn">인기순 ⇅</div>
+
+          <div class="sort-dropdown" id="sortDropdown">
+            <div class="sort-item">인기순</div>
+            <div class="sort-item">관심순</div>
+            <div class="sort-item">판매일순</div>
+            <div class="sort-item">높은가격순</div>
+            <div class="sort-item">낮은가격순</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <main class="product-grid" id="productGrid"></main>
+
+    <div id="colorModal" class="modal-overlay">
+      <div class="modal-window">
+        <div class="modal-top">
+          <h3>필터</h3>
+          <span class="close-x" onclick="closeAllModals()">&times;</span>
+        </div>
+        <div class="modal-tabs">
+          <span class="active-tab">색상</span>
+        </div>
+        <div class="color-selection-grid" id="colorSelectionGrid"></div>
+        <div class="modal-bottom">
+          <button class="view-products-btn">상품보기</button>
+          <div class="reset-link">↺ 선택 초기화하고, 다른 상품보기</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="priceModal" class="modal-overlay">
+      <div class="modal-window">
+        <div class="modal-top">
+          <h3>필터</h3>
+          <span class="close-x" onclick="closeAllModals()">&times;</span>
+        </div>
+        <div class="modal-tabs">
+          <span class="active-tab">가격</span>
+        </div>
+        <div class="price-content">
+          <h4 class="section-title">가격</h4>
+          <div class="price-radio-grid">
+            <label><input type="radio" name="p" checked /> 전체</label>
+            <label><input type="radio" name="p" /> 5만원 이하</label>
+            <label><input type="radio" name="p" /> 5만원 ~ 10만원</label>
+            <label><input type="radio" name="p" /> 10만원 ~ 20만원</label>
+            <label><input type="radio" name="p" /> 20만원 ~ 30만원</label>
+            <label><input type="radio" name="p" /> 30만원 이상</label>
+            <label class="full-row"
+              ><input type="radio" name="p" /> 직접입력</label
+            >
+          </div>
+          <div class="direct-input-row">
+            <input
+              type="text"
+              id="minPrice"
+              inputmode="numeric"
+              placeholder="1,000"
+            />
+            <span>-</span>
+            <input
+              type="text"
+              id="maxPrice"
+              inputmode="numeric"
+              placeholder="5,720,000"
+            />
+            <button class="small-apply-btn">적용</button>
+          </div>
+        </div>
+        <div class="modal-bottom">
+          <button class="view-products-btn">상품보기</button>
+          <div class="reset-link">↺ 선택 초기화하고, 다른 상품보기</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="sizeModal" class="modal-overlay">
+      <div class="modal-window">
+        <div class="modal-top">
+          <h3>필터</h3>
+          <span class="close-x" onclick="closeAllModals()">&times;</span>
+        </div>
+        <div class="modal-tabs">
+          <span class="active-tab">사이즈</span>
+        </div>
+        <div class="size-content">
+          <h4 class="section-title">신발 사이즈(mm)</h4>
+          <div class="size-grid">
+            <label><input type="checkbox" /> 220 이하</label>
+            <label><input type="checkbox" /> 225</label>
+            <label><input type="checkbox" /> 230</label>
+            <label><input type="checkbox" /> 235</label>
+            <label><input type="checkbox" /> 240</label>
+            <label><input type="checkbox" /> 245</label>
+            <label><input type="checkbox" /> 250</label>
+            <label><input type="checkbox" /> 255</label>
+            <label><input type="checkbox" /> 260</label>
+            <label><input type="checkbox" /> 265</label>
+            <label><input type="checkbox" /> 270</label>
+            <label><input type="checkbox" /> 275</label>
+            <label><input type="checkbox" /> 280</label>
+            <label><input type="checkbox" /> 285</label>
+            <label><input type="checkbox" /> 290 이상</label>
+          </div>
+        </div>
+        <div class="modal-bottom">
+          <button class="view-products-btn">상품보기</button>
+          <div class="reset-link">↺ 선택 초기화하고, 다른 상품보기</div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
